@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 15px;
+            color: white;
+            text-align: center;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card .statistics {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .statistics div {
+            text-align: center;
+        }
+
+        .statistics div p {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .chart {
+            width: 100%;
+            height: 200px;
+            background-color: #e7e7e7;
+            margin-top: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Healthcare Dashboard</h1>
+    </header>
+
+    <div class="sidebar">
+        <a href="#" onclick="showSection('patients')">Patient Records</a>
+        <a href="#" onclick="showSection('appointments')">Appointments</a>
+        <a href="#" onclick="showSection('analytics')">Analytics</a>
+        <a href="#" onclick="showSection('settings')">Settings</a>
+    </div>
+
+    <div class="content" id="content">
+        <!-- Patient Records Section -->
+        <div id="patients" class="section">
+            <div class="card">
+                <h3>Patient Records</h3>
+                <div class="statistics">
+                    <div>
+                        <p>120</p>
+                        <p>Patients</p>
+                    </div>
+                    <div>
+                        <p>5</p>
+                        <p>New Admissions</p>
+                    </div>
+                    <div>
+                        <p>15</p>
+                        <p>Discharges</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointments Section -->
+        <div id="appointments" class="section" style="display: none;">
+            <div class="card">
+                <h3>Appointments</h3>
+                <div class="statistics">
+                    <div>
+                        <p>45</p>
+                        <p>Upcoming</p>
+                    </div>
+                    <div>
+                        <p>30</p>
+                        <p>Completed</p>
+                    </div>
+                    <div>
+                        <p>12</p>
+                        <p>Missed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Section -->
+        <div id="analytics" class="section" style="display: none;">
+            <div class="card">
+                <h3>Analytics</h3>
+                <div class="statistics">
+                    <div>
+                        <p>75%</p>
+                        <p>Patient Satisfaction</p>
+                    </div>
+                    <div>
+                        <p>50%</p>
+                        <p>Follow-up Rate</p>
+                    </div>
+                </div>
+                <div class="chart" id="chart"></div>
+            </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settings" class="section" style="display: none;">
+            <div class="card">
+                <h3>Settings</h3>
+                <p>Adjust your preferences here.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Healthcare Inc.</p>
+    </div>
+
+    <script>
+        // Show or hide sections
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.style.display = 'none');
+
+            const activeSection = document.getElementById(sectionId);
+            activeSection.style.display = 'block';
+        }
+
+        // Dummy Chart
+        const chart = document.getElementById('chart');
+        chart.innerHTML = "<div style='height: 100%; background: linear-gradient(to top, #4CAF50, #8BC34A);'></div>";
+    </script>
+</body>
+</html>
